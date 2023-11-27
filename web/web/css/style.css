@@ -1,0 +1,43 @@
+.box h2{
+	color: blue;
+}
+.box{
+	height: 100px;
+	width: 100px;
+	color: blue;
+	/* background-color: black; */
+}
+.boxBig{
+	width: 600px; /* 宽度 */
+	height: 500px;/* 高度 */
+	background-color: #ffdcdb;
+}
+.boxLeft{
+	width: 200px;
+	height: 500px;
+	float: left;
+	background-color: #fee692;
+}
+.boxRight{
+	width: 400px;
+	height: 500px;
+	float: left;
+	background-color: #75a99c;
+}
+.boxLeftTop{
+	width: 200px;
+	height: 300px;
+	float: left;
+	background-color: #e93425;
+	line-height: 10px;
+	text-align: center;
+}
+.boxLeftTop img{
+	width: 200px;
+}
+.boxLeftBottom{
+	width: 200px;
+	height: 200px;
+	float: left;
+	/* background-color: #e93425; */
+}
