@@ -1,0 +1,307 @@
+【3.4】删除模式
+ DROP SCHEMA<模式名><CASCADE | RESTRICT>;
+ DROP SCHEMA ZHANG CASCADE;
+
+【3.6】建立一个课程表 COURSE 
+ CREATE TABLE Course
+ （Cno CHAR (4)PRIMARY KEY,
+     Cname char(40) not null,
+      cpno char(4)
+      ccredit smallint,
+  foreingn key（cpno)   references course (cno)
+);
+
+【3.8】向 STUDENT表增加“入学时间”列，其数据类型为日期型
+ ALTER TABLE STUDENT ADD S_ENTRANCE DATE;
+
+【3.10】增加课程名称必须取唯一值的约束条件
+ ALTER TABLE COURSE ADD UNIQUE (CNAME);
+
+【3.12】若表上建有视图，选择RESTRICT时表不能删除；选择CASCADE时可以删除表，视图也自动被删除。
+  CREATE VIEW IS_student 
+as 
+select sno,sname,sage
+ from student 
+where sdept='is';
+
+drop table student restrict;
+
+【3.14】将SC表的SCNO索引名改为SCSNO
+ALTER INDEX SCNO RENAME TO SCSNO;
+
+【3.16】查询全体学生的学号和姓名
+select sno, sname
+from student;
+
+【3.18】查询全体学生的详细记录
+SELECT *
+FROM STUDENT;
+等价于
+SELECT SNO,SNAME,SSEX,SAGE,SDEPT
+FROM STUDENT;
+
+【3.20】查询全体学生的姓名，出生年份和所在的院系，要求用小写字母表示系名
+select sname,'year of birth:',2019-sage,lower(sdept)
+from student;
+
+【3.22】查询计算机科学系全体学生的名单
+SELECT SNAME 
+FROM STUDENT
+WHERE SDEPT-'CS';
+
+【3.24】查询考试成绩不及格的学生的学号
+SELECT DISTINCT SNO
+FROM SC 
+WHERE GRADE <60;
+
+【3.26】查询年龄在20~23岁（包括20、23）之间的学生姓名，系别和年龄
+SELECT SNAME,SDEPT,SAGE
+FROM STUDENT 
+WHERE SAGE BETWEEN 20 AND 23;
+
+【3.28】查询既不是计算机科学系，科学系，也不是信息系的学生的姓名和性别。
+SELECT SNAME,SSEX
+FROM STUDENT 
+WHERE SDEPT NOT IN('CS','MA','IS');
+
+【3.30】查询所有姓刘的学生的姓名，学号，性别。
+SELECT SNAME,SNO,SSEX
+FROM STUDENT 
+WHERE SNAME LIKE '刘%';
+
+【3.32】查询名字中第二个字为“阳”的学生的姓名和学号。
+SELECT SNAME,SNO 
+FROM STUDENT 
+WHERE SNAME LIKE '_阳%'；
+
+【3.34】查询DB_DESIGN课程的课程号和学分
+select cno，ccredit
+from COURSE
+WHERE CNAME LIKE 'DB\_design'          escape'\'; 
+
+【3.38】查询计算机科学系年龄在20岁以下的学生姓名
+SELECT SNAME 
+FROM STUDENT 
+WHERE SDEPT ='CS' AND SAGE<20;
+
+【3.40】查询全体学生情况，查询结果按所在系的系号升序排列，同一系的学生按年龄降序排列。
+SELECT *
+FROM STUDENT 
+ORDER BY SDEPT,SAGE DESC;
+
+【3.42】查询选修了课程的学生人数。
+SELECT COUNT (DISTINCT SNO)
+FROM SC;
+
+【3.44】查询选修1号课程的学生最高分数
+SELECT MAX(GRADE)
+FROM SC 
+WHERE CNO='1';
+
+【3.46】求各个课程号及相应的选课人数
+SELECT CNO,COUNT(SNO)
+FROM SC
+GROUP BY CNO;
+
+【3.48】查询平均成绩大于等于90分的学生学号和平均成绩
+SELECT SNO ,AVG(GRADE)
+FROM SC
+GROUP BY SNO 
+HAVING AVG(GRADE)>=90;
+
+【3.52】查询每一门课的间接选修课（先修课的选修课）
+SELECT FIRST.CNO,SECOND.CPNO
+FROM COURSE FIRST,COURSE SECOND
+WHERE FIRST.CPNO=SECOND.CNO;
+
+【3.54】查询每个学生的学号，姓名，选修的课程名及成绩
+本查询设计三个表，完成该查询的SQL语句如下：
+SELECT STUDENT .SNO,SNAME ,CNAME,GRADE
+FROM STUDENT ,SC,COURSE
+WHERE STUDENT.SNO=SC.SNO AND SC.CNO
+=COURSE.CNO;
+
+【3.56】查询选修了课程名为“信息系统”的学生学号和姓名
+SELECT STUDENT.SNO,SNAME
+FROM STUDENT,SC,COURSE
+WHERE STUDENT.SNO=SC.SNO AND 
+SC.CNO=SOURSE.CNO AND
+COURSE.CNAME='信息系统';
+
+【3.58】查询非计算机科学系中比计算机科学系任意一个学生年龄笑的学生姓名和年龄。
+SELECT SNAME,SAGE 
+FROM STUDENT 
+WHERE SAGE <ANY (SELECT SAGE 
+FROM STUDENT 
+WHERE SDEPT='CS')
+AND SDEPT <>'CS';
+
+ 【3.60】查询选修了全部课程的学生姓名
+select sname
+from student 
+where not exists
+(select *
+from course 
+where not exists 
+(select * 
+from sc 
+where sno=student.cno
+and cno=course.cno));
+
+【3.64】查询计算机科学系的学生及年龄不大于19岁的学生
+SELECT *
+FROM STUDENT 
+WHERE SDEPT ='CS'
+UNION
+SELECT *
+FROM STUDENT 
+WHERE SAGE<=19;
+
+【3.66】查询计算机科学系的学生与年龄不大于19岁的学生的交集
+select *
+FROM STUDENT 
+WHERE SDEPT='CS'AND
+SAGE<=19;
+
+【3.68】查询计算机科学系的学生与年龄不大于19岁的学生的差集
+SELECT *
+FROM STUDENT
+WHERE SDEPT ='CS'AND SAGE >19;
+
+【3.70】将学生张成民的信息插入STUDENT表中
+INSERT 
+INTO STUDENT 
+VALVES('201215126','张成民','男',18,'cs')；
+
+
+【3.74】将所有学生的年龄增加1岁
+UPDATE STUDENT 
+SET SAGE =SAGE+1;
+
+【3.76】删除学号为201212128的学生记录
+DELETE 
+FROM student
+where sno='201215128';
+
+【3.78】删除计算机科学系所有学生的选课记录
+delete 
+from sc
+where sno in 
+(select sno
+ from student 
+where sdept='cs');
+
+【3.80】将student表中学生号为‘201215200’的学生所属的系改为空置
+update student 
+set sdept =null
+where sno =‘201215200’;
+
+【3.82】找出选修1号课程的不及格学生
+select sno 
+from sc
+where grade <60 and cno='1';
+
+【3.84】建立信息系学生的视图
+CREATE VIEW IS_STUDENT 
+AS 
+SELECT SNO,SNAME,SAGE
+FROM STUDENT 
+WHERE SDEPT='IS';
+
+【3.86】建立信息系选修了1号课程的学生的视图(包括学号，成绩，姓名）
+create view is_s1(sno,sname,grade)
+as
+select student.sno,sname,grade
+from student ,sc
+where sdept='is'and
+student.sno=sc.sno and 
+sc.cno='1';
+
+【3.88】定义一个反映学生出生年份的视图
+CREATE VIEW BT_S(SNO,SNAME,SBIRTH)
+AS
+SELECT SNO,SNAME,2019-SAGE
+FROM STUDENT;
+
+【3.90】将student表中所有女生记录定义为一个视图
+create view f_student（f_sno,name,sex,age,dept)
+as
+select *
+from student
+where ssex ='女';
+
+【3.92】在信息系学生的视图中中出年龄小于20岁的学生
+SELECT SNO,SAGE
+FROM IS_STUDENT 
+WHERE SAGE<20;
+
+【3.94】在s_g视图中查询平均成绩在90分以上的学生学号和平均成绩 
+select *
+from s_g
+where gavg>=90;
+
+【3.96】向信息系学生视图is_student中插入一个新的学生记录中学号为"201215129"，姓名为赵欣，年龄为20岁
+INSERT 
+INTO IS_STUDENT(SNO,SNAME,SAGE,SDEPT)
+VALYES('201212129','赵新'，20，'is'）；
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
