@@ -69,6 +69,63 @@ DateTimeEditor_CursorPos_Type4<|||>3<|||>9
 SQLFile0<|||>1<|||>F:\网页设计 2020.10\数据库实验\SQLQuery2廖晶晶.sql
 SQLFile1<|||>1<|||>F:\网页设计 2020.10\数据库实验\图书管理系统.sql
 SQLFile2<|||>1<|||>F:\毕业资料\whale.sql
+SQL Attr Comment Foreground<|||>3<|||>8421504
+SQL Attr Comment Background<|||>3<|||>536870911
+SQL Attr Comment Style<|||>3<|||>2
+SQL Attr ConditionalComment Foreground<|||>3<|||>8421504
+SQL Attr ConditionalComment Background<|||>3<|||>536870911
+SQL Attr ConditionalComment Style<|||>3<|||>2
+SQL Attr DataType Foreground<|||>3<|||>128
+SQL Attr DataType Background<|||>3<|||>536870911
+SQL Attr DataType Style<|||>3<|||>1
+SQL Attr DefaultPackages Foreground<|||>3<|||>536870911
+SQL Attr DefaultPackages Background<|||>3<|||>536870911
+SQL Attr DefaultPackages Style<|||>3<|||>1
+SQL Attr DelimitedIdentifier Foreground<|||>3<|||>32896
+SQL Attr DelimitedIdentifier Background<|||>3<|||>536870911
+SQL Attr DelimitedIdentifier Style<|||>3<|||>0
+SQL Attr Exception Foreground<|||>3<|||>536870911
+SQL Attr Exception Background<|||>3<|||>536870911
+SQL Attr Exception Style<|||>3<|||>2
+SQL Attr Function Foreground<|||>3<|||>8388608
+SQL Attr Function Background<|||>3<|||>536870911
+SQL Attr Function Style<|||>3<|||>1
+SQL Attr Identifier Foreground<|||>3<|||>32896
+SQL Attr Identifier Background<|||>3<|||>536870911
+SQL Attr Identifier Style<|||>3<|||>0
+SQL Attr Number Foreground<|||>3<|||>8388736
+SQL Attr Number Background<|||>3<|||>536870911
+SQL Attr Number Style<|||>3<|||>0
+SQL Attr PLSQL-ReservedWord Foreground<|||>3<|||>536870911
+SQL Attr PLSQL-ReservedWord Background<|||>3<|||>536870911
+SQL Attr PLSQL-ReservedWord Style<|||>3<|||>1
+SQL Attr ReservedWord Foreground<|||>3<|||>16711680
+SQL Attr ReservedWord Background<|||>3<|||>536870911
+SQL Attr ReservedWord Style<|||>3<|||>1
+SQL Attr Space Foreground<|||>3<|||>536870911
+SQL Attr Space Background<|||>3<|||>536870911
+SQL Attr Space Style<|||>3<|||>0
+SQL Attr SQLPlus-Command Foreground<|||>3<|||>536870911
+SQL Attr SQLPlus-Command Background<|||>3<|||>536870911
+SQL Attr SQLPlus-Command Style<|||>3<|||>1
+SQL Attr String Foreground<|||>3<|||>32768
+SQL Attr String Background<|||>3<|||>536870911
+SQL Attr String Style<|||>3<|||>0
+SQL Attr Symbol Foreground<|||>3<|||>16711680
+SQL Attr Symbol Background<|||>3<|||>536870911
+SQL Attr Symbol Style<|||>3<|||>0
+SQL Attr TableName Foreground<|||>3<|||>16711935
+SQL Attr TableName Background<|||>3<|||>536870911
+SQL Attr TableName Style<|||>3<|||>0
+SQL Attr Variable Foreground<|||>3<|||>8388736
+SQL Attr Variable Background<|||>3<|||>536870911
+SQL Attr Variable Style<|||>3<|||>0
+DataFontSize<|||>3<|||>18
+FieldEditor_Set<|||>3<|||>1
+LineBreakStyle<|||>3<|||>1
+FontSize<|||>3<|||>20
+TabWidth<|||>3<|||>2
+MaxQueryResults<|||>3<|||>11
 Servers\X5\SessionCreated<|||>1<|||>2015-10-08 17:14:23
 Servers\X5\Host<|||>1<|||>127.0.0.1
 Servers\X5\WindowsAuth<|||>3<|||>0
@@ -97,9 +154,9 @@ Servers\X5\SSL_Cert<|||>1<|||>
 Servers\X5\SSL_CA<|||>1<|||>
 Servers\X5\SSL_Cipher<|||>1<|||>
 Servers\X5\ServerVersionFull<|||>1<|||>5.6.26 - MySQL Community Server (GPL)
-Servers\X5\ConnectCount<|||>3<|||>41
+Servers\X5\ConnectCount<|||>3<|||>42
 Servers\X5\ServerVersion<|||>3<|||>50626
-Servers\X5\LastConnect<|||>1<|||>2023-12-03 15:43:22
+Servers\X5\LastConnect<|||>1<|||>2023-12-13 15:17:34
 Servers\X5\lastUsedDB<|||>1<|||>bluewhale
 Servers\X5\RefusedCount<|||>3<|||>1
 Servers\X5\bluewhale|records\Sort<|||>1<|||>1_RecordstudentName|
